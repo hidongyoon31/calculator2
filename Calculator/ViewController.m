@@ -72,6 +72,7 @@ typedef enum  opr Operator;
             break;
         default:
             break;
+            
     }
     currentValue = [calc accumulator];
        self.myLabel.text=[NSString stringWithFormat:@"%d",currentValue ];
