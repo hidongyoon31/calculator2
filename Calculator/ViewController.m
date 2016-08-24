@@ -22,13 +22,16 @@ typedef enum  opr Operator;
 }
 - (IBAction)buttonClicked:(id)sender {
     UIButton *btn =(UIButton *)sender;
+    
     int value = (int)btn.tag;
-    if(currentOpr==none){
+    currentValue = currentValue *10 +value;
+    
+   /* if(currentOpr==none){
          currentValue = currentValue *10 +value;
     }else{
         currentValue = value;
     }
-    
+    */
     self.myLabel.text =[NSString stringWithFormat:@"%d",currentValue];
     
 
@@ -54,6 +57,7 @@ typedef enum  opr Operator;
             break;
     }
     [calc setAccumulator:currentValue];
+    currentValue=0;
 }
 - (IBAction)clickEqual:(id)sender {
     
@@ -90,6 +94,7 @@ typedef enum  opr Operator;
     calc =[[Calculator alloc]init];
     currentOpr = none;
     currentValue = 0;
+    self.myLabel.text = @"0";
 }
 
 - (void)didReceiveMemoryWarning {
